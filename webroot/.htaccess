@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    #Options +FollowSymLinks  # A decommenter sur 1NA1
+    RewriteEngine on
+    #RewriteBase /            # A decommenter sur 1NA1
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
