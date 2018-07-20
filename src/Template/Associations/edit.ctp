@@ -85,7 +85,7 @@
                                           'label' => 'Grand livre (format Excel ou pdf)',
                                           'type' => 'file']);
             } else {
-              echo '<p><b>Grand livre 2016</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo '<p><b>Grand livre</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
               echo $this->Html->link('Supprimer le Grand livre',
                                       ['controller' => 'Associations', 'action' => 'deletefile',
                                         "id" => $association->id,
