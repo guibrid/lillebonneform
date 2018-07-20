@@ -11,6 +11,7 @@
 </nav>
 <div class="teams index large-9 medium-8 columns content">
     <h3><?= __('Equipes') ?></h3>
+    <h5><?= __('Le service des sports calculera le temps par sportif') ?></h5>
     <p align="right"><b><?= $this->Html->link(__('Ajouter une équipe'), ['controller' => 'teams', 'action' => 'add']) ?></b></p>
     <table cellpadding="0" cellspacing="0">
         <thead>
@@ -18,7 +19,7 @@
                 <th scope="col"><?= $this->Paginator->sort('name', ['label' => 'Nom de l\'équipe']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nbr_playeur', ['label' => 'Nbr de compétiteurs de l\'équipe']) ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nbr_match', ['label' => 'Nbr de matches officiels annuels']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('nbr_km', ['label' => 'Nbr Km annuels de l\'équipe']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('nbr_km', ['label' => 'Nbr Km annuels de l\'équipe (Aller/retour uniquement un trajet)']) ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>

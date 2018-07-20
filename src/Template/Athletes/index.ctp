@@ -9,6 +9,7 @@
 </nav>
 <div class="athletes index large-9 medium-8 columns content">
     <h3><?= __('Compétiteurs') ?></h3>
+    <h5><?= __('Disciplines individuelles') ?></h5>
     <p align="right"><b><?= $this->Html->link(__('Ajouter un compétiteur'), ['controller' => 'athletes', 'action' => 'add']) ?></b></p>
     <table cellpadding="0" cellspacing="0">
         <thead>

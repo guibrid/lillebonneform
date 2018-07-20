@@ -32,7 +32,7 @@ class DiplomasController extends AppController
 
         $user = $this->Auth->user();
         if (isset($user['role']) && $user['role'] === 'author') {
-            $this->Auth->allow(['index','edit','add','delete','cartepro']);
+            $this->Auth->allow(['index','edit','add','delete','cartepro','deletefile']);
         }
 
     }
@@ -133,6 +133,38 @@ class DiplomasController extends AppController
             //$typeBrevet = $this->request->data['typeBrevet'];
             return null;
           }
+        }
+
+    public function deletefile()
+        {
+            $controllerName = strtolower($this->request->params['controller']);
+            //debug($controllerName);
+            //debug( $this->request->query['id']);
+            //debug( $this->request->query['file_type']);
+
+            $fileToDelete = $this->Diplomas->get($this->request->query['id']);
+            $fileName = $this->request->query['file_type'];
+            $dirName = $this->request->query['file_type'].'_dir';
+
+            //Supprimer le fichier physics
+            $urlFile = 'files/'.$controllerName.'/'.$this->request->query['file_type'].'/'.$fileToDelete->$dirName.'/'.$fileToDelete->$fileName;
+            $urlFolder = 'files/'.$controllerName.'/'.$this->request->query['file_type'].'/'.$fileToDelete->$dirName;
+            //debug($urlFile);
+            //debug($urlFolder);
+            unlink($urlFile);
+            rmdir($urlFolder);
+            $updatedData = [$this->request->query['file_type'] => '', $this->request->query['file_type'].'_dir' => ''];
+            //debug($updatedData);
+            $fileToDelete = $this->Diplomas->patchEntity($fileToDelete, $updatedData);
+            if ($this->Diplomas->save($fileToDelete)) {
+              $this->Flash->success(__('Le fichier est supprimé.'));
+              return $this->redirect(['controller' => 'Diplomas', 'action' => 'edit', $this->request->query['id']]);
+
+          } else {
+            $this->Flash->error(__('Le fichier n\'a pas pu être supprimé'));
+            return $this->redirect(['controller' => 'Diplomas', 'action' => 'edit', $this->request->query['id']]);
+          }
+
         }
 
 }

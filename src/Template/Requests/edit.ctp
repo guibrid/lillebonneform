@@ -19,6 +19,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Budget prévisionnel </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Budget prévisionnel',
+                                      ['controller' => 'Requests', 'action' => 'deletefile',
+                                        "id" => $request->id,
+                                        "file_type" => "budget_previ_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
 
         ?>

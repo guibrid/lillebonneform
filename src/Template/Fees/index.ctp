@@ -9,6 +9,7 @@
 </nav>
 <div class="fees index large-9 medium-8 columns content">
     <h3><?= __('Frais & cotisations') ?></h3>
+    <h5><?= __('Montant affiliation, engagement, cotisations, licences fédérales, arbitrages') ?></h5>
     <p align="right"><b><?= $this->Html->link(__('Ajouter des frais ou cotisations'), ['controller' => 'fees', 'action' => 'add']) ?></b></p>
     <table cellpadding="0" cellspacing="0">
         <thead>

@@ -17,7 +17,7 @@
             echo $this->Form->control('name', ['label' => 'Nom de la manifestation']);
             echo $this->Form->control('description', ['label' => 'Description']);
             echo $this->Form->control('budget_previ_doc', [
-                                        'label' => 'Budget prévisionnel (format pdf)',
+                                        'label' => 'Budget prévisionnel (format pdf)  (Obligatoire si demande de subvention)',
                                         'type' => 'file']);
             echo $this->Form->control('association_id', ['type' => 'hidden',
                                                          'value' => $session->read('association_id')]);

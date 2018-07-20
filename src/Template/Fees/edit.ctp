@@ -12,9 +12,11 @@
         <legend><?= __('Modifier les frais') ?></legend>
         <?php
             $options = ['' => '',
-                        'Licence fédérale' => 'Licence fédérale',
-                        'Cotisation du club' => 'Cotisation du club',
-                        'Frais d\'engagement-arbitrage' => 'Frais d\'engagement-arbitrage' ];
+            'Montant affiliation' => 'Montant affiliation',
+            'Engagement' => 'Engagement',
+            'Licence fédérale' => 'Licence fédérale',
+            'Cotisation du club' => 'Cotisation du club',
+            'Frais d\'engagement-arbitrage' => 'Frais d\'engagement-arbitrage' ];
             echo $this->Form->control('type', ['label'=>'Type de frais', 'type'=>'select', 'options'=>$options]);
             echo $this->Form->control('name', ['label'=>'Description']);
             echo $this->Form->control('age_category', ['label'=>'Catégorie d\'age']);
@@ -25,6 +27,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Justification du montant </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Justification du montant',
+                                      ['controller' => 'Fees', 'action' => 'deletefile',
+                                        "id" => $fee->id,
+                                        "file_type" => "proof_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
         ?>
     </fieldset>

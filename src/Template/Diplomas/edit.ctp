@@ -11,7 +11,7 @@
 <div class="diplomas form large-9 medium-8 columns content">
     <?= $this->Form->create($diploma, ['type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Modifier un brevet') ?></legend>
+        <legend><?= __('Modifier un brevets fédéral') ?></legend>
         <?php
 
             echo $this->Form->control('name', [
@@ -33,7 +33,13 @@
                                                 'minYear' => date('Y') - 100,
                                                 'maxYear' => 2017,
                                                  ]);
-            $options = [$diploma->type => $diploma->type, 'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif', 'Brevet fédéral' => 'Brevet fédéral'];
+            $options = [$diploma->type => $diploma->type, 'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif', 'Brevet fédéral' => 'Brevet fédéral',
+            'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif',
+            'Brevet fédéral' => 'Brevet fédéral',
+            'BEES' => 'BEES',
+            'BPJEPS' => 'BPJEPS',
+            'CQP' => 'CQP',
+            'Autre' => 'Autre'];
             echo $this->Form->control('type', ['label'=>'Type de brevet', 'type'=>'select', 'options'=>$options]);
             echo '<table>';
             echo '<tr><td>';
@@ -43,6 +49,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Diplôme </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le diplome',
+                                      ['controller' => 'Diplomas', 'action' => 'deletefile',
+                                        "id" => $diploma->id,
+                                        "file_type" => "diploma_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($diploma->carte_pro_doc)) {
@@ -51,6 +62,11 @@
                                           'type'  => 'file']);
             } else {
               echo '<p><b>Carte professionnelle </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer la Carte professionnelle',
+                                      ['controller' => 'Diplomas', 'action' => 'deletefile',
+                                        "id" => $diploma->id,
+                                        "file_type" => "carte_pro_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($diploma->contrat_doc)) {
@@ -59,6 +75,11 @@
                                           'type'  => 'file']);
             } else {
               echo '<p><b>Contrat de travail </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le contrat de travail',
+                                      ['controller' => 'Diplomas', 'action' => 'deletefile',
+                                        "id" => $diploma->id,
+                                        "file_type" => "contrat_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($diploma->planning_doc)) {
@@ -67,6 +88,11 @@
                                           'type'  => 'file']);
             } else {
               echo '<p><b>Planning d\'intervention </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Planning d\'intervention',
+                                      ['controller' => 'Diplomas', 'action' => 'deletefile',
+                                        "id" => $diploma->id,
+                                        "file_type" => "planning_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td></tr></table>';
         ?>

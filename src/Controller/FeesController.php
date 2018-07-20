@@ -30,7 +30,7 @@ class FeesController extends AppController
 
         $user = $this->Auth->user();
         if (isset($user['role']) && $user['role'] === 'author') {
-            $this->Auth->allow(['index','edit','add','delete']);
+            $this->Auth->allow(['index','edit','add','delete','deletefile']);
         }
 
     }
@@ -119,4 +119,32 @@ class FeesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function deletefile()
+        {
+            $controllerName = strtolower($this->request->params['controller']);
+
+            $fileToDelete = $this->Fees->get($this->request->query['id']);
+            $fileName = $this->request->query['file_type'];
+            $dirName = $this->request->query['file_type'].'_dir';
+
+            //Supprimer le fichier physics
+            $urlFile = 'files/'.$controllerName.'/'.$this->request->query['file_type'].'/'.$fileToDelete->$dirName.'/'.$fileToDelete->$fileName;
+            $urlFolder = 'files/'.$controllerName.'/'.$this->request->query['file_type'].'/'.$fileToDelete->$dirName;
+
+            unlink($urlFile);
+            rmdir($urlFolder);
+            $updatedData = [$this->request->query['file_type'] => '', $this->request->query['file_type'].'_dir' => ''];
+
+            $fileToDelete = $this->Fees->patchEntity($fileToDelete, $updatedData);
+            if ($this->Fees->save($fileToDelete)) {
+              $this->Flash->success(__('Le fichier est supprimé.'));
+              return $this->redirect(['controller' => 'Fees', 'action' => 'edit', $this->request->query['id']]);
+
+          } else {
+            $this->Flash->error(__('Le fichier n\'a pas pu être supprimé'));
+            return $this->redirect(['controller' => 'Fees', 'action' => 'edit', $this->request->query['id']]);
+          }
+
+        }
 }

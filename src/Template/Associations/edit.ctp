@@ -30,6 +30,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Listing des licenciés </b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le listing',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "listing_licencies_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($association->calendrier_resultats_doc)) {
@@ -38,6 +43,12 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Calendrier et les résultats officiels</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le calendrier',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "calendrier_resultats_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
+
             }
             echo '</td><td>';
             if (empty($association->list_adherents_doc)) {
@@ -46,6 +57,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Listing des adhérents</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le listing des adhérents',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "list_adherents_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td></tr></table>';
             echo '<h4>'. __('Nombre de licenciés').'</h4>';
@@ -57,14 +73,24 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Compte de résultat de la saison</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Compte de résultat',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "compte_resultat_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($association->grand_livre_doc)) {
               echo $this->Form->control('grand_livre_doc', [
-                                          'label' => 'Grand livre 2016 (format Excel ou pdf)',
+                                          'label' => 'Grand livre (format Excel ou pdf)',
                                           'type' => 'file']);
             } else {
               echo '<p><b>Grand livre 2016</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Grand livre',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "grand_livre_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($association->budget_realise_doc)) {
@@ -73,6 +99,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Budget réalisé</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Budget réalisé',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "budget_realise_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td><td>';
             if (empty($association->budget_previsionnel_doc)) {
@@ -81,6 +112,11 @@
                                           'type' => 'file']);
             } else {
               echo '<p><b>Budget prévisionnel</b><br />'.$this->Html->image('icon_pdf_upload.gif', ['alt' => 'Votre fichier est en ligne']).'</p>';
+              echo $this->Html->link('Supprimer le Budget prévisionnel',
+                                      ['controller' => 'Associations', 'action' => 'deletefile',
+                                        "id" => $association->id,
+                                        "file_type" => "budget_previsionnel_doc",],
+                                      ['confirm' => 'êtes-vous sur de vouloir supprimer le fichier?']);
             }
             echo '</td></tr></table>';
             /*echo $this->Form->control('user_id', [

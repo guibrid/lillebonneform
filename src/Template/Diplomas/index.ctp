@@ -10,7 +10,8 @@
 
 </nav>
 <div class="diplomas index large-9 medium-8 columns content">
-    <h3><?= __('Diplômes & brevets') ?></h3>
+    <h3><?= __('Brevets fédéraux') ?></h3>
+    <h5><?= __('Encadrement par des salariés (BEES, BPJEPS, CQP, ...) conformément au code du sport') ?></h5>
     <p align="right"><b><?= $this->Html->link(__('Ajouter un brevet'), ['controller' => 'diplomas', 'action' => 'add']) ?></b></p>
     <table cellpadding="0" cellspacing="0">
         <thead>

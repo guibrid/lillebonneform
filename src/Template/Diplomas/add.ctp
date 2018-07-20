@@ -11,10 +11,16 @@
 <div class="diplomas form large-9 medium-8 columns content">
     <?= $this->Form->create($diploma, ['type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Ajouter un brevet') ?></legend>
+        <legend><?= __('Ajouter un brevet fédéral') ?></legend>
         <?php
             $session = $this->request->session();
-            $options = ['' => '', 'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif', 'Brevet fédéral' => 'Brevet fédéral'];
+            $options = ['' => '',
+                        'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif',
+                        'Brevet fédéral' => 'Brevet fédéral',
+                        'BEES' => 'BEES',
+                        'BPJEPS' => 'BPJEPS',
+                        'CQP' => 'CQP',
+                        'Autre' => 'Autre'];
             echo $this->Form->control('type', ['label'=>'Type de brevet', 'type'=>'select', 'options'=>$options]);
             echo $this->Form->control('name', ['label' => 'Nom']);
             echo $this->Form->control('prenom', ['label' => 'Prénom']);

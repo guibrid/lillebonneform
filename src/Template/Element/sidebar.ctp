@@ -3,12 +3,11 @@
     <li class="heading"><?= __('Actions') ?></li>
     <li><?= $this->Html->link(__('Détails de l\'association'), ['controller' => 'Associations', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Membres de l\'asso'), ['controller' => 'Members', 'action' => 'index']) ?></li>
-    <li><?= $this->Html->link(__('Diplomes & brevets'), ['controller' => 'Diplomas', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Brevets fédéraux'), ['controller' => 'Diplomas', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Frais & cotisations'), ['controller' => 'Fees', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Compétiteurs'), ['controller' => 'athletes', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Equipes'), ['controller' => 'teams', 'action' => 'index']) ?></li>
-    <li><?= $this->Html->link(__('Adhérents'), ['controller' => 'adherents', 'action' => 'index']) ?></li>
-    <li><?= $this->Html->link(__('Manifestations pour 2018'), ['controller' => 'manifestations', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Manifestations pour 2019'), ['controller' => 'manifestations', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Niveau de jeu'), ['controller' => 'levels', 'action' => 'index', $session->read('association_id') ]) ?></li>
     <li><?= $this->Html->link(__('Demandes divers'), ['controller' => 'requests', 'action' => 'index']) ?></li>
 </ul>

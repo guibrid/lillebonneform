@@ -17,7 +17,7 @@
             echo $this->Form->control('name', ['label' => 'Nom de l\'équipe']);
             echo $this->Form->control('nbr_playeur', ['label' => 'Nombre de compétiteurs par équipe']);
             echo $this->Form->control('nbr_match', ['label' => 'Nombre de matches officiels annuels']);
-            echo $this->Form->control('nbr_km', ['label' => 'Nombre de kilomètres annuels par équipe']);
+            echo $this->Form->control('nbr_km', ['label' => 'Nombre de kilomètres annuels par équipe  (Aller/retour uniquement un trajet)']);
             echo $this->Form->control('association_id', ['type' => 'hidden',
                                                          'value' => $session->read('association_id')]);
         ?>

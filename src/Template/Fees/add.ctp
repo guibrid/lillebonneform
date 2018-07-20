@@ -13,9 +13,12 @@
         <?php
             $session = $this->request->session();
             $options = ['' => '',
+                        'Montant affiliation' => 'Montant affiliation',
+                        'Engagement' => 'Engagement',
                         'Licence fédérale' => 'Licence fédérale',
                         'Cotisation du club' => 'Cotisation du club',
                         'Frais d\'engagement-arbitrage' => 'Frais d\'engagement-arbitrage' ];
+
             echo $this->Form->control('type', ['label'=>'Type de frais', 'type'=>'select', 'options'=>$options]);
             echo $this->Form->control('name', ['label'=>'Description']);
             echo $this->Form->control('age_category', ['label'=>'Catégorie d\'age']);

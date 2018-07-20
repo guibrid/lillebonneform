@@ -10,13 +10,14 @@
 
 </nav>
 <div class="manifestations index large-9 medium-8 columns content">
-    <h3><?= __('Manifestations prévues pour 2018') ?></h3>
+    <h3><?= __('Manifestations prévues pour 2019') ?></h3>
+    <h5><?= __('Rappel: le solde de la subvention sera versé après réception des budgets réalisés') ?></h5>
     <p align="right"><b><?= $this->Html->link(__('Ajouter une manifestation'), ['controller' => 'manifestations', 'action' => 'add']) ?></b></p>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('name', ['label' => 'Nom de la manifestation']) ?></th>
-                <th scope="col"><?= $this->Paginator->sort('budget_previ_doc', ['label' => 'Budget prévisionnel']) ?></th>
+                <th scope="col"><?= $this->Paginator->sort('budget_previ_doc', ['label' => 'Budget prévisionnel (Obligatoire si demande de subvention)']) ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
