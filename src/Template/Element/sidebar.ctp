@@ -3,7 +3,8 @@
     <li class="heading"><?= __('Actions') ?></li>
     <li><?= $this->Html->link(__('Détails de l\'association'), ['controller' => 'Associations', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Membres de l\'asso'), ['controller' => 'Members', 'action' => 'index']) ?></li>
-    <li><?= $this->Html->link(__('Brevets fédéraux'), ['controller' => 'Diplomas', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Brevets fédéraux'), ['controller' => 'Brevets', 'action' => 'index']) ?></li>
+    <li><?= $this->Html->link(__('Encadrement salariés'), ['controller' => 'Diplomas', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Frais & cotisations'), ['controller' => 'Fees', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Compétiteurs'), ['controller' => 'athletes', 'action' => 'index']) ?></li>
     <li><?= $this->Html->link(__('Equipes'), ['controller' => 'teams', 'action' => 'index']) ?></li>

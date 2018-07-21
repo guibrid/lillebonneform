@@ -78,6 +78,9 @@ class AssociationsTable extends Table
         $this->hasMany('Diplomas', [
             'foreignKey' => 'association_id'
         ]);
+        $this->hasMany('Brevets', [
+            'foreignKey' => 'association_id'
+        ]);
         $this->hasMany('Fees', [
             'foreignKey' => 'association_id'
         ]);

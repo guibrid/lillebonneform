@@ -11,20 +11,18 @@
 <div class="diplomas form large-9 medium-8 columns content">
     <?= $this->Form->create($diploma, ['type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Ajouter un brevet fédéral') ?></legend>
+        <legend><?= __('Ajouter un encadrement salarié') ?></legend>
         <?php
             $session = $this->request->session();
-            $options = ['' => '',
-                        'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif',
-                        'Brevet fédéral' => 'Brevet fédéral',
-                        'BEES' => 'BEES',
-                        'BPJEPS' => 'BPJEPS',
-                        'CQP' => 'CQP',
-                        'Autre' => 'Autre'];
-            echo $this->Form->control('type', ['label'=>'Type de brevet', 'type'=>'select', 'options'=>$options]);
+            $options = ['' => '','BEES' => 'BEES',
+            'BPJEPS' => 'BPJEPS',
+            'CQP' => 'CQP',
+            'Autre' => 'Autre'
+                        ];
+            echo $this->Form->control('type', ['label'=>'Type de diplôme', 'type'=>'select', 'options'=>$options]);
             echo $this->Form->control('name', ['label' => 'Nom']);
             echo $this->Form->control('prenom', ['label' => 'Prénom']);
-            echo $this->Form->control('number', ['label' => 'Numéro du brevet']);
+            echo $this->Form->control('number', ['label' => 'Numéro de diplôme']);
             $this->Form->templates(['dateWidget' => '{{day}}{{month}}{{year}}{{hour}}{{minute}}{{second}}{{meridian}}']);
             echo $this->Form->control('date', ['label' => 'Date d\'obtention',
                                                 'monthNames' => false,
@@ -41,10 +39,10 @@
             echo $this->Form->control('association_id', ['type' => 'hidden',
                                                          'value' => $session->read('association_id')]);
            echo $this->Form->control('diploma_doc', [
-                                       'label' => 'Photocopie du brevet (format pdf)',
+                                       'label' => 'Photocopie du diplôme (format pdf)',
                                        'type' => 'file']);
            echo $this->Form->control('carte_pro_doc', [
-                                       'label' => 'Photocopie de la carte professionnelle BEES uniquement (format pdf)',
+                                       'label' => 'Photocopie de la carte professionnelle (format pdf)',
                                        'type' => 'file']);
            echo $this->Form->control('contrat_doc', [
                                        'label' => 'Photocopie du contrat de travail (format pdf)',

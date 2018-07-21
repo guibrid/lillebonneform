@@ -10,9 +10,9 @@
 
 </nav>
 <div class="diplomas index large-9 medium-8 columns content">
-    <h3><?= __('Brevets fédéraux') ?></h3>
-    <h5><?= __('Encadrement par des salariés (BEES, BPJEPS, CQP, ...) conformément au code du sport') ?></h5>
-    <p align="right"><b><?= $this->Html->link(__('Ajouter un brevet'), ['controller' => 'diplomas', 'action' => 'add']) ?></b></p>
+    <h3><?= __('Encadrement salariées') ?></h3>
+    <h5><?= __('Encadrement par des salariés (BEES, BPJEPS, CQP, ...) conformément au code du sport. Sont retenus, tous diplômes d’encadrement sportif, conformément à la réglementation en vigueur') ?></h5>
+    <p align="right"><b><?= $this->Html->link(__('Ajouter un encadrement salarié'), ['controller' => 'diplomas', 'action' => 'add']) ?></b></p>
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

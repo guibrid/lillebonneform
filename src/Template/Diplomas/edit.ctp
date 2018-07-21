@@ -11,7 +11,7 @@
 <div class="diplomas form large-9 medium-8 columns content">
     <?= $this->Form->create($diploma, ['type' => 'file']) ?>
     <fieldset>
-        <legend><?= __('Modifier un brevets fédéral') ?></legend>
+        <legend><?= __('Modifier encadrement salarié') ?></legend>
         <?php
 
             echo $this->Form->control('name', [
@@ -33,14 +33,12 @@
                                                 'minYear' => date('Y') - 100,
                                                 'maxYear' => 2017,
                                                  ]);
-            $options = [$diploma->type => $diploma->type, 'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif', 'Brevet fédéral' => 'Brevet fédéral',
-            'Brevet d\'état d\'éducateur sportif' => 'Brevet d\'état d\'éducateur sportif',
-            'Brevet fédéral' => 'Brevet fédéral',
+            $options = [$diploma->type => $diploma->type,
             'BEES' => 'BEES',
             'BPJEPS' => 'BPJEPS',
             'CQP' => 'CQP',
             'Autre' => 'Autre'];
-            echo $this->Form->control('type', ['label'=>'Type de brevet', 'type'=>'select', 'options'=>$options]);
+            echo $this->Form->control('type', ['label'=>'Type de diplome', 'type'=>'select', 'options'=>$options]);
             echo '<table>';
             echo '<tr><td>';
             if (empty($diploma->diploma_doc)) {
